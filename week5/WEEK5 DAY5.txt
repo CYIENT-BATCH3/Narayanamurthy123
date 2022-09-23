@@ -1,0 +1,64 @@
+WAP to print area os circle,area of rectangle,area of square,area of triangle and area of square using function area use concept of function operators.
+
+#include<iostream>
+using namespace std;
+#define PI 3.14
+class function_area
+{
+public:
+	void area(int r)
+	{
+		cout<<"area of circle is : "<<(PI*r*r)<<endl;
+	}
+	void area(int l,int w)
+	{
+		cout<<"area of rectangle is : "<<(l*w)<<endl;
+	}
+	void area(double b,double h)
+	{
+		cout<<"area of triangle is : "<<(0.5*b*h)<<endl;
+	}
+        void area(double a)
+	{
+		cout<<"area of square is : "<<(a*a)<<endl;
+	}
+};
+int main()
+{
+	function_area s1;
+	s1.area(8);
+	s1.area(5,9);
+	s1.area(4.5,9.6);
+        s1.area(14.3);
+	return 0;
+}
+
+
+basic program using VIRTUAL FUNCTIONS
+
+#include<iostream>
+using namespace std;
+class a
+{
+public:
+	 virtual void show()
+	{
+		cout<<"hello";
+	}
+};
+class b:public a
+{
+public:
+	void show()
+	{
+		cout<<"hi";
+	}
+};
+int main()
+{
+	b dr;
+	a &bs=dr;
+	bs.show();
+	dr.show();
+}
+
