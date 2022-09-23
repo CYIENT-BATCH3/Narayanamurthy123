@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+3.reverse a number
+
+#int main()
+{
+    int n,t;
+    printf("Enter a number");
+    scanf("%d",&n);
+    printf("%d \nReverse number:",n);
+    t=n%10;
+    printf("%d",t);
+    n=n/10;
+    t=n%10;
+    printf("%d",t);
+    n=n/10;
+    t=n%10;
+    printf("%d",t);
+    n=n/10;
+    t=n%10;
+    printf("%d",t);
+    n=n/10;
+    t=n%10;
+    printf("%d",t);
+    n=n/10;
+    t=n%10;
+    printf("%d",t);
+    n=n/10;
+    t=n%10;
+}
+

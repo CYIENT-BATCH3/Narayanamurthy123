@@ -1,0 +1,13 @@
+
+2.Area of garden 
+
+#include <stdio.h>
+
+int main ()
+{
+  int r=5,a;
+  a=22/7*r*r;
+  printf("area of garden %d",a); 
+    
+}
+

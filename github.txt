@@ -1,0 +1,40 @@
+1. About GitHub
+  -------------
+Github is web site based flat form to provide free courses by branch teachers and make collaboration tasks ,researches. You can create private and public branches  to provide help support and knowledge, skills on same branch or different branches on various factors.  
+
+
+2. Understand by github.
+-------------------------
+
+1.  repository:
+
+You can store a variety of projects in GitHub repositories, including open source projects.
+
+2.push:
+
+In the command line, navigate to the root directory of your project. Initialize the local directory as a Git repository. To create a repository for your project on GitHub, use the gh repo create subcommand. When prompted, select Push an existing local repository to GitHub and enter the desired name for your repository.
+
+3.pull:
+
+The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content. Merging remote upstream changes into your local repository is a common task in Git-based collaboration work flows.
+
+4.commit:
+
+The git commit command captures a snapshot of the project's currently staged changes. Committed snapshots can be thought of as “safe” versions of a project—Git will never change them unless you explicitly ask it to.
+
+5.Branch:
+
+Image result for Branch in github
+A branch represents an independent line of development. Branches serve as an abstraction for the edit/stage/commit process.
+
+6.clone:
+
+When you clone a repository, you copy the repository from GitHub.com to your local machine. 
+
+7.Review:
+
+To add review comments, click the + icon next to the line number. Type your review comment and then click Start Review. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
+
+8.Merge:
+
+use git checkout to switch to the branch you want to merge into. This branch is typically the main branch. Next, use git merge and specify the name of the other branch to bring into this branch.

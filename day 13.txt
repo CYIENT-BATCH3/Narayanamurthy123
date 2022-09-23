@@ -1,0 +1,180 @@
+
+
+#include <stdio.h>
+int main()
+{
+  int a=22;
+  float b=6.4;
+  char ch='m';
+  int *p1;
+  float *p2;
+  char *p3;
+  p1=&a;
+  printf("%d\n ",*p1);
+  p3=&b;
+  printf("%d\n",*p3);
+  p2=&ch;
+  printf("%d\n",*p2);
+  *p2=b;
+  printf("%f\n",*p2);
+  return 0;
+}
+
+*******************************************************************************/
+
+#include <stdio.h>
+int main()
+{
+  int *p,num1=50;
+  int *p1,num2=150;
+  p=&num1;
+  p1=&num2;
+  printf("address of p variable is %u \n",p);
+  printf("value of p variable is %d \n",*p);
+  printf(" %d\n",*p + *p1);
+  printf("\n address of p variable is %u \n",++*p);
+  return 0;
+}
+*******************************************************************************/
+
+#include <stdio.h>
+void swap(int,int);
+int main()
+{
+  swap(64,22);
+  return 0;
+}
+void swap(int a,int b)
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+    printf("%d %d",a,b);
+}
+
+*******************************************************************************/
+
+#include <stdio.h>
+void swap(int,int);
+int main()
+{
+    int a,b;
+ // swap(int a,int b);
+  printf("enter the value of a :\n");
+  scanf("%d",&a);
+  printf("enter the value of b :\n");
+  scanf("%d",&b);
+  swap(a,b);
+  return 0;
+}
+void swap(int a,int b)
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+    printf("after interchanging values are %d %d",a,b);
+}
+*******************************************************************************/
+
+#include <stdio.h>
+void swap(int *,int *);
+int main()
+{
+    int a,b,*pa,*pb;
+  printf("enter the value of a :\n");
+  scanf("%d",&a);
+  printf("enter the value of b :\n");
+  scanf("%d",&b);
+  pa=&a;
+  pb=&b;
+  swap(&a,&b);
+  printf("after interchanging values are %d %d",a,b);
+  return 0;
+}
+void swap(int *a,int *b)
+{
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    
+}
+*******************************************************************************/
+
+#include <stdio.h>
+void result(int *a,int *b,int *c,int *d);
+int main()
+{
+    int p,q,r,s;
+  printf("enter the value of p :\n");
+  scanf("%d",&p);
+  printf("enter the value of q :\n");
+  scanf("%d",&q);
+   printf("enter the value of r :\n");
+  scanf("%d",&r);
+  printf("enter the value of s :\n");
+  scanf("%d",&s);
+   result(&p,&q,&r,&s);
+}
+   void result(int *a,int *b,int *c,int *d)
+{
+    puts("\n received values are");
+    printf("\n%d %d %d  %d",*a,*b,*c,*d);
+}
+
+*******************************************************************************/
+
+#include <stdio.h>
+void result(int x,int y,int *rem,int *quo);
+int main()
+{
+    int a=10,b=5;
+    int *p,*q;
+    p=&a;
+    q=&b;
+    result(a,b,p,q);
+    printf("remainder=%d\n quotient=%d",a,b);
+}
+void result(int x,int y,int *rem,int *quo)
+{
+    *rem=x%y;
+    *quo=x/y;
+}
+*******************************************************************************/
+  
+
+#include <stdio.h>
+float a[5]={1.2,1.8,1.4,1.6,2.8},n,sum=0,result;
+float avg(float* a1,int n);
+void main()
+{
+   result=avg(a,5);
+}
+float avg(float* a5,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        sum+=a5[i];
+    }
+    printf("the average of variables=%f",sum);
+}
+
+*******************************************************************************/
+ 
+
+#include <stdio.h>
+#include<stdlib.h>
+int rand();
+int main()
+{
+    int i;
+    for(i=0;i<10;i++)
+    {
+    printf("the random number is =%d\n",rand()%20000);
+    }
+    return 0;
+}
+ 
+

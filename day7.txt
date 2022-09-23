@@ -1,0 +1,119 @@
+
+
+marks of astudent
+
+#include <stdio.h>
+
+int main()
+{
+    int marks;
+    printf("enter the marks of the student");
+    scanf("%d",&marks);
+ if(marks>=90&&marks<=100)
+  printf("A grade");
+ else if(marks>=80&&marks<=89) 
+  printf("B grade");
+ else if(marks>=79&&marks<=69)
+  printf("C grade");
+  else if(marks>=68&&marks<=78)
+  printf("pass");
+  else
+  printf("fail");
+    return 0;
+}
+
+
+
+
+even or odd
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a=4;
+  if(a%2==0)
+    printf("the number is even");
+  else
+  printf("the nmber is odd");
+    return 0;
+}
+
+
+temperature
+
+
+#include <stdio.h>
+
+int main()
+{
+ int temp;
+     printf("enter the temperature");
+     scanf("%d",&temp);
+  if(temp<=0)
+  printf("freezing weather");
+  else if(temp>0&&temp<=10)
+  printf("very cold weather");
+  else if(temp>10&&temp<=20)
+  printf("cold weather");
+  else if(temp>20&&temp<=30)
+  printf("normal in temperature");
+  else if(temp>30&&temp<=40)
+  printf("hot");
+  else
+  printf("very hot");
+  return 0;
+}
+
+
+
+calculator using switch case
+
+#include <stdio.h>
+int main()
+{
+ int a,b;
+ char cal;
+ printf("enter a and b values");
+ scanf("%d %d",&a,&b);
+ printf("enter the operator");
+ scanf("%c",&cal);
+ switch(cal)
+ {
+     case'+':
+     printf("sum=%d",a+b);
+     break;
+     case'-':
+     printf("sub=%d",a-b);
+     break;
+     case'*':
+     printf("mul=%d",a*b);
+     break;
+     case'%':
+     printf("div=%d",a/b);
+     break;
+     default:
+     printf("nothing");
+     
+ }
+  return 0;
+}
+
+
+leco car program
+
+#include <stdio.h>
+
+int main()
+{
+ int dr_door=0xA5,pa_door=0x55,t_door=0xAA;
+ dr_door&(1<<6)?printf("dr_door is open\n"):printf("dr_door is closed\n");
+ dr_door&(1<<7)?printf("dr_door is open\n"):printf("dr_door is closed\n");
+ pa_door&(1<<3)?printf("pa_door is open\n"):printf("pa_door is closed\n");
+ pa_door&(1<<4)?printf("pa_door is open\n"):printf("pa_door is closed\n");
+ t_door&(1)?printf("pa_door is open\n"):printf("pa_door is closed");
+  return 0;
+}
+
+

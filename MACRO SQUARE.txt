@@ -1,0 +1,15 @@
+/*
+*start
+*define macro for finding square
+*printning the result
+*/
+#include <stdio.h>//header file
+#define square(num) (num*num)//defining macro
+int main()//execution of program starts from here 
+{
+    int num;//declaring num
+    printf("enter a number\n");//asking user to enter the number
+    scanf("%d",&num);//reading number
+    printf("\nthe square of %d is %d",num,square(num));//printning the square
+    return 0;
+}

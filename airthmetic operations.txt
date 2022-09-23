@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+   int a=200;
+   int b=23;
+   int add,sub,div;
+   add=a+b;
+   sub=a-b;
+   div=a/b;
+    printf("%d %d %d",add,sub,div);
+
+    return 0;
+}

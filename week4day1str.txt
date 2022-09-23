@@ -1,0 +1,117 @@
+********************************************************************************/
+
+structure as arguments
+
+#include<stdio.h>
+#include<string.h>
+ typedef struct					//declaring structures
+{
+	int roll_no;
+	char name[20];
+
+}student;
+void struct_print(student);		//protype for the function with structure argument
+int main()
+{
+	setbuf(stdout,NULL);
+	student std1,std2;			//declaring 2 structure variable
+	strcpy(std1.name,"murthy");		//assigning name to first variable
+	std1.roll_no = 12;
+
+	printf("\nenter the name: ");		//taking user input foor the 2nd structure function
+	scanf("%s",std2.name);
+	printf("\nenter the roll no: ");
+	scanf("%d",&std2.roll_no);
+	struct_print(std1);
+	struct_print(std2);
+}
+void struct_print(student std1)
+{
+
+    printf("\nname : %s",std1.name);		//printing  structure elements
+	printf("\nroll no: %d",std1.roll_no);
+	printf("\n------------------------------");
+	}
+
+*************************************************************************/
+
+structure as argument with pass by reference
+
+#include<stdio.h>
+
+typedef struct											//declare the structure using typedef
+{
+	int emp_id;
+	float salary;
+	char name[30];
+
+}employee;												//typedef datatype employee
+
+void struct_print(employee *);							//fn prototype with structure pointer as argument
+
+int main()
+{
+	setbuf(stdout,NULL);
+	employee emp1,emp2;									//creating 2 structur variables
+	printf("\nenter the details for emp1: ");
+	struct_print(&emp1);								//calling fun for input data into 1st struture variable
+	printf("\nenter the details for emp2: ");
+	struct_print(&emp2);								//calling fun for input data into 2nd struture variable					
+
+	printf("\n-------------------------------------");
+
+	printf("\nemp_id : %d",emp1.emp_id);				//printing the elements of 1st srture variable
+	printf("\nemp_name : %s",emp1.name);
+	printf("\nemp_id : %f",emp1.salary);
+	printf("\n-------------------------------------");
+
+		printf("\nemp_id : %d",emp2.emp_id);		//printing the elements of 2nd srture variable
+		printf("\nemp_name : %s",emp2.name);
+		printf("\nemp_id : %f",emp2.salary);
+}
+
+void struct_print(employee * emp)					//fn defnition to take input from user
+{
+	printf("\n enter the emp_id: ");
+	scanf("%d",&emp->emp_id);
+	printf("\n enter the name : ");
+	scanf("%s",emp->name);
+	printf("\n enter the salary: ");
+	scanf("%f",&emp->salary);
+
+}
+
+*************************************************************************/
+without using structures
+
+#include<stdio.h>
+
+void struct_print(int*,float*,char*);
+int main()
+{
+	setbuf(stdout,NULL);
+	int emp_id;                                 //declaring variables
+	float salary;
+	char name[20];
+	struct_print(&emp_id,&salary,name);        //passing address of the variables to the fn
+
+
+	printf("\n-------------------------------------");
+
+	printf("\nemp_id : %d",emp_id);				//printing the elements variables
+	printf("\nemp_name : %s",name);
+	printf("\nemp_id : %f",salary);
+	printf("\n-------------------------------------");
+
+}
+
+void struct_print(int* id,float* sal,char* ch)					//fn defnition to take input from user
+{
+	printf("\n enter the emp_id: ");
+	scanf("%d",id);
+	printf("\n enter the name : ");
+	scanf("%s",ch);
+	printf("\n enter the salary: ");
+	scanf("%f",sal);
+
+}

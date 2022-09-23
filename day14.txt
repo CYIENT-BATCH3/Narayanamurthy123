@@ -1,0 +1,113 @@
+
+******************************************************************************************/
+
+#include <stdio.h>
+int main()
+  {
+      int a=2264,b=23,c=34;
+      int *p1=&a;
+      int **p2=&p1;
+      int ***p3=&p2;
+      printf("adresses of p1 p2 p3 are %d %d %d %d",a,*p1,*p2,**p3);
+      
+  }
+
+**********************************************************************/
+
+
+#include <stdio.h>
+void main()
+{
+    
+    int *p=NULL;
+    printf("%d",p);
+}
+
+
+*******************************************************************************/
+
+#include <stdio.h>
+void main()
+{
+   int a=20;
+   float b=39.2585;
+   char c='m';
+   void *p;
+   p=&a;
+   printf("value of a is %d",*(int*)p);
+    p=&b;
+   printf("\nvalue of b is %f",*(float*)p);
+   p=&c;
+   printf("\nvalue of c is %c",*(char*)p);
+   
+   return 0; 
+}
+
+
+******************************************************************************/
+
+
+#include <stdio.h>
+int main()
+{
+  int a[5]={1,2,3,4,5};  
+  printf("%d %u %d %d %u",&a[0],*(a+4),&a[2],&a[3],*(a+0));
+  return 0;
+}
+
+
+*******************************************************************************/
+
+
+#include <stdio.h>
+const int MAX = 4;
+int main()
+{
+    char *names[ ] ={"Zara Ali","Hina Ali","Nuha Ali","Sara Ali"};
+    int i=0;
+    for (i=0;i<MAX; i++)
+    {
+        printf("value of names [%d] =%u--%s\n",i,names[i],names[i]);
+    }
+    return 0;
+}
+
+
+*******************************************************************************/
+#include <stdio.h>
+const int MAX = 4;
+int main()
+{
+    char *names[ ] ={"Murthy","Madhu","Mani","manumurthy"};
+    int i=0;
+    for (i=0;i<MAX; i++)
+    {
+        printf("value of names [%d] =%u--%s\n",i,names[i],names[i]);
+    }
+    return 0;
+}
+
+
+*******************************************************************************/
+#include <stdio.h>
+int main()
+{
+    int *a[5]={980,56,64,67,89},small,big;
+    small=a[0];
+    big=a[0];
+    for(int i=0;i<5;i++)
+    {
+      if(big>a[i])
+      {
+          small=a[i];
+      }
+      else
+      {
+          big=a[i];
+      }
+    }
+     
+      printf("biggest number=%d\nsmall number=%d ",big,small);
+      printf("\nbiggest number address=%d\nsmallest number address=%d",&big,&small);
+    }
+    

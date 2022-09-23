@@ -1,0 +1,229 @@
+FUNCTION WITH NO RETURN AND NO ARGUMENTS
+
+#include <stdio.h>
+void sum()             //declaration function
+{
+     int x=10,y=20;   //local variables
+     printf("sum=%d\n",x+y);
+}  
+void subtraction()      //declaration function
+{
+   int x=10,y=20;      //local variables
+     printf("subtraction=%d\n",x-y);
+}  
+void multiplication()   //declaration function
+{
+    int x=10,y=20;     //local variables
+     printf("multiplication=%d\n",x*y);
+} 
+void division()       //declaration function
+{
+    int x=10,y=20;    //local variables
+      printf("division=%d\n",x%y);
+}     
+void main()
+{
+    sum();            //calling function for sum
+    subtraction();    //calling function for subtraction
+    multiplication(); //calling function for multiplication
+    division();       //calling function for division
+}
+ 
+
+
+SWAPPING OF TWO VARIBLES USING THIRD VARIABLE
+
+#include <stdio.h>
+void swap()
+ {
+      int first,second,temp;
+     printf("enter first number: ");
+     scanf("%d",&first);
+     printf("enter the second number: ");
+     scanf("%d",&second);
+      printf("before swapping first number first=%d second=%d\n",first,second);
+     temp=first;
+     first=second;
+     second=temp;
+    
+     printf("after swapping second number first=%d second=%d\n",first,second);
+     
+ }
+ void main(){
+ swap();
+}
+
+
+FUNCTION WITH NO RETRN AND WITH ARGUMENTS SUM,SUB,DIV,MUL
+
+#include <stdio.h>
+ void sum(int ,int );
+ void sub(int ,int );
+ void mul(int ,int );
+ void divi(int ,int );
+ void main()
+ {
+      int m,n;
+      printf("enter the values ");
+      scanf("%d%d",&m,&n);
+      sum(m,n);
+       printf("enter the values ");
+      scanf("%d%d",&m,&n);
+      sub(m,n);
+       printf("enter the values ");
+      scanf("%d%d",&m,&n);
+      mul(m,n);
+       printf("enter the values ");
+      scanf("%d%d",&m,&n);
+      divi(m,n);
+       printf("enter the values ");
+      scanf("%d%d",&m,&n);   
+ }
+  void sum(int x,int y)
+ {
+ printf("sum=%d\n",x+y);
+}
+ void sub(int x,int y)
+ {
+ printf("sub=%d\n",x-y); 
+}
+ void mul(int x,int y)
+ {
+ printf("mul=%d\n",x*y);
+}
+ void divi(int x,int y)
+ {
+ printf("divi=%d\n",x/y);
+}
+
+
+
+
+SWAPPING TWO VARIABLES WITHOUT USING THIRD VARIABLE
+
+#include <stdio.h>
+void swap()
+ {
+      int first,second;
+     printf("enter first number: ");
+     scanf("%d",&first);
+     printf("enter the second number: ");
+     scanf("%d",&second);
+      printf("before swapping first number first=%d second=%d\n",first,second);
+     first=first+second;
+     second=first-second;
+     first=first-second;
+    
+     printf("after swapping second number first=%d second=%d\n",first,second);
+     
+ }
+ void main(){
+ swap();
+}
+
+
+FUNCTION WITH RETURN AND WITH ARGUMENTS SUM
+
+#include <stdio.h>
+   int sum(int a ,float b)         //declaring a variable with actual arguments
+  { 
+   return a+b;
+  }
+     int main()
+   {  
+     int x,z;                    //declaring the variables
+     float y;
+     printf("enter the values \n "); 
+     scanf("%d%f",&x,&y);       //reading the variables
+     z=sum(x,y);                  //calling the function
+        
+   
+     printf("sum=%d",z);
+   }
+
+FUNCTION WITH RETURN AND NO ARGUMENTS SUM
+
+#include <stdio.h>
+   int add();         //global declaration   
+   int main()
+   {
+     int sum;         //declaring sum as varible
+     sum=add();       //calling function
+     printf("sum=%d\n",sum);
+   }
+   int add()           //called function
+   {
+      int a,b,c;        //declaring the variables
+      printf("enter the values");
+      scanf("%d%d",&a,&b);  //reading the given values
+      c=a+b;               //airthematic operation 
+      return c;
+  }
+
+
+
+FACTORIAL OF A NUMBER USING THE FUNCTIONS
+
+#include<stdio.h>
+int factorial();
+int main()
+{
+    int fact;
+    fact=factorial();
+    printf("factorial is %d",fact);
+}
+int factorial()
+{
+    int number,fact=1;
+    printf("enter the number ");
+    scanf("%d",&number);
+    for(int i=1;i<=number;i++)
+    {
+    fact=fact*i;
+    }
+    return fact;
+}
+
+
+COUNT THE NO OF DIGITS IN A GIVEN NUMBER BY USING RECURSION
+
+#include<stdio.h>
+int noofdigits(int n1);
+int ctr=0;
+int main()
+{
+    int n1,ctr;
+    printf("\n count the digits of a given number :\n");
+    printf("input a number : ");
+    scanf("%d",&n1);
+    ctr=noofdigits(n1);
+    printf("the number of digits in the number is :%d\n\n",ctr);
+    return 0;
+}
+    int noofdigits(int n1)
+    {
+        if(n1!=0)
+        {
+            ctr++;
+            noofdigits(n1/10);
+        }
+        return ctr;
+    }
+
+TOGGLE THE GIVEN BYTE VALUE
+
+#include<stdio.h>
+int toggle(int byte,int position)
+{
+    int a;
+    a=byte^(1<<position);
+    return a;
+}
+ void main()
+ {
+    int a,b,c;
+    printf("enter the byte and position ");
+    scanf("%d %d",&a,&b);
+    c=toggle(a,b);
+    printf("%d",c);
+ }

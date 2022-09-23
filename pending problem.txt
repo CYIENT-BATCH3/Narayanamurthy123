@@ -1,0 +1,36 @@
+#include<stdio.h>
+struct employee    //structure declaration
+{
+    int emp_id;    //integer declaration
+   long int con_num;
+    char name[30];  //character declaration
+    float salary;   //float declaration
+};
+int main()
+{  
+    struct employee e1[10];   //structure definition
+    int i,n;
+    printf("enter the number of employees data :");
+    scanf("%d",&n);
+    
+    for(i=0;i<n;i++)
+  {
+    printf("\nenter the name :");   //asking user to enter  the employee name
+    scanf("%s",e1[i].name);         //reading the employee name
+    printf("\nenter employee id :"); //asking the user to enter the employee id
+    scanf("%d",&e1[i].emp_id);          // reading the employee id
+    printf("\nenter the salary :");  // asking the user to enter the salary
+    scanf("%f",&e1[i].salary);//reading the salary
+    printf("\n enter the contact number :");
+    scanf("%li\n",&e1[i].con_num);
+  }
+  for(i=0;i<n;i++)
+  {
+    printf("\n enter the employee name :%s\n",e1[i].name);
+    printf("\n enter employee id :%d\n",e1[i].emp_id);
+    printf("\n enter the employee salary :%f\n",e1[i].salary);
+    printf("\n enter the contact number :%li\n",e1[i].con_num);
+  }
+    return 0;
+}
+    

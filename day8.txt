@@ -1,0 +1,193 @@
+sum of 4 digits
+
+#include <stdio.h>
+int main()
+{
+    int num,sum=0,rem;
+    printf("enter the number");
+    scanf("%d",&num);
+  while(num>0)
+  {
+  rem=num%10;
+  sum=sum+rem;
+  num=num/10;
+  }
+  printf("%d",sum);
+   
+}
+ 
+
+
+
+odd numbers from 1 to 50
+
+#include <stdio.h>
+int main()
+{
+    int i=0,n=50;
+    //printf("enter the number");
+    //scanf("%d",&n);
+    //i=1;
+    while(i<=n)
+    {
+    if(i%2!=0){
+    printf("%d ",i);
+    }
+    ++i;
+    
+    }
+}
+
+
+
+
+even numbers from 1 to 50
+
+#include <stdio.h>
+int main()
+{
+    int i=0,n=50;
+    //printf("enter the number");
+    //scanf("%d",&n);
+    //i=1;
+    while(i<=n)
+    {
+    if(i%2==0){
+    printf("%d ",i);
+    }
+    ++i;
+    
+    }
+}
+
+
+
+
+odd numbers in reverse 100 to 50
+
+#include <stdio.h>
+int main()
+{
+    int i=100,n=50;
+    //printf("enter the number");
+    //scanf("%d",&n);
+    //i=1;
+    while(i>=n)
+    {
+    if(i%2!=0){
+    printf("%d ",i);
+    }
+    --i;
+    
+    }
+}
+
+
+
+natural numbers from 1 to 100
+
+#include <stdio.h>
+int main()
+{
+    int i=1,n=100;
+do
+    { printf("%d ",i);
+       i++;
+    }
+   while(i<=100);
+
+}
+
+
+
+
+factorial of anumber
+
+#include <stdio.h>
+
+int main()
+{
+    int i=1,fact=1,num;
+    printf("enter the number");
+    scanf("%d",&num);
+    do
+    {
+     fact=fact*i;
+     i++;
+    }
+    while(i<=num);
+    printf("%d",fact);
+
+    return 0;
+}
+
+
+
+factorial of 120
+
+#include <stdio.h>
+int main()
+{
+    long double i=1,fact=1,num;
+    printf("enter the number");
+    scanf("%Lf",&num);
+    do
+    {
+     fact=fact*i;
+     i++;
+    }
+    while(i<=num);
+    printf("%Lf",fact);
+
+    return 0;
+}
+
+
+prime numbers from 1 to 100 using for loop
+
+#include <stdio.h>
+   int main()
+{
+    int i,n=100;
+    for(i=1;i<=n;i++)
+    printf("%d ",i);
+    return 0;
+}
+
+
+
+break and continue program
+
+#include <stdio.h>
+int main()
+{
+   int i,n=10;
+   for(i=0;i<=10;i++)
+   {
+        if(i==7){
+        break;
+   }
+     printf("%d ",i);
+   }  
+}
+
+
+noise of a sensor
+
+
+#include <stdio.h>
+
+int main()
+{
+    int i=1,sens_var;
+    for(i=1;i<=10;i++)
+    {
+      printf("enter the sample data\n");
+      scanf("%x",&sens_var);
+      if(sens_var>0x05&&sens_var<0xF1)
+      printf("sample%d:%x\n",i,sens_var);
+      else
+      printf("its noise");
+    }
+  
+}

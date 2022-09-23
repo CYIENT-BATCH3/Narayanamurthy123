@@ -1,0 +1,62 @@
+*ALGORITHM
+ * start
+ * declare and initialize the variables by using the user
+ * user have to enter a decimal number
+ * then the input given by the user should be printed on the console
+ * we have to write a logic to convert that decimal number in to binary number
+ * we have to print the output in binary form only
+ */
+#include<stdio.h>          //header file
+int dec;                   //declaring the variable 
+int b0,b1,b2,b3,b4,b5,b6,b7; //declaring the variable
+int main()                     //execution starts from here
+{
+  setbuf(stdout,NULL);
+  printf("Enter a decimal number : ");  //ask the user to enter the variable
+  scanf("%d",&dec);                     //reading the variable
+ b0=dec % 2;                           //assigning remainder to b0
+ dec /=2;                              //changing number
+ b1=dec % 2; dec /=2;
+ b2=dec % 2; dec /=2;
+ b3=dec % 2; dec /=2;
+ b4=dec % 2; dec /=2;
+ b5=dec % 2; dec /=2;
+ b6=dec % 2; dec /=2;
+ b7=dec % 2; dec /=2;
+
+ printf("enter binary number =%d%d%d%d%d%d%d%d",b7,b6,b5,b4,b3,b2,b1,b0);  //printing the binary value
+ return 0;
+}
+
+
+
+second method
+
+#include<stdio.h>      //header file
+#include<math.h>
+int main()             //main function
+{
+  int n;               //initilization to the variable n
+  int bin;             //initilization to the variable bin
+  printf("Enter a decimal number : ");    //asking user to enter the number
+  scanf("%d",&n);                       //reading the number
+  bin=convert(n);               //converting decimal to binary
+  printf("%d in decimal =%d in binary",n,bin); //printing the value
+	return 0;
+}
+convert(int n)
+{
+	int i;          //initilization to the variable i
+	int bin=0;       //declaration to the variable bin
+	int rem;          //initilization to the rem
+	i=1;
+	while(n!=0)       //using while loop
+	{
+		rem=n % 2;
+		n /=2;
+		bin +=rem*i;
+		i*=10;
+	}
+	return bin;
+}
+	 

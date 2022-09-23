@@ -1,0 +1,94 @@
+*********************************************************************************/
+
+#include<stdio.h>
+#include<math.h>
+#define Pi 3.142
+int r=3;
+int h=5;
+float area;
+int main()
+{
+	 float area_circle=Pi*r*r;
+	printf("area of circle=%f\n",area_circle);
+	float area_cylinder=2*Pi*r*h+2*Pi*r*r;
+	printf("area of cylinder=%f\n",area_cylinder);
+        float area_cone=Pi*r*(r*sqrt(h*h+r*r));
+        printf("area of cone=%f\n",area_cone);
+	return 0;
+}
+
+
+****************************************************************************/
+#include<stdio.h>
+#define age
+int main()
+{
+#ifndef age
+	printf("age is not defined");
+#else
+	printf("age is defined");
+#endif
+}
+
+****************************************************************************/
+#include<stdio.h>
+struct student1
+{
+	unsigned int high;
+	unsigned int low;
+}s1;
+struct student2
+{
+	unsigned int high :1;
+	unsigned int low :1;
+}s2;
+int main()
+{
+	printf("%d\n",sizeof(s1));
+	printf("%d\n",sizeof(s2));
+}
+
+*************************************************************************/
+
+#include<stdio.h>
+struct num
+{
+	unsigned int x :3;
+}n1;
+struct num2
+{
+	unsigned int x:4;
+}n2;
+struct num3
+{
+   unsigned int x:8; 
+}n3;
+int main()
+{   n1.x=3;
+	printf("size ofnum1=%d\n",sizeof(n1));
+	printf("value ofnum1=%d\n",n1.x);
+	n2.x=12;
+    printf("size of num2=%d\n",sizeof(n2));
+    printf("value ofnum2=%d\n",n2.x);
+    n3.x=9;
+	printf("size of num3=%d\n",sizeof(n3));
+	printf("value ofnum3=%d\n",n3.x);
+}
+
+****************************************************************/
+
+#include<stdio.h>
+#pragma pack(1)
+struct student
+{
+	char ch;
+	int a;
+	float b;
+}s1;
+int main()
+{
+	printf("sizeof  integer s1=%d\n",sizeof(s1.a));
+	printf("sizeof structure s1=%d\n",sizeof(s1));
+	printf("sizeof float s1=%d\n",sizeof(s1.b));
+}
+

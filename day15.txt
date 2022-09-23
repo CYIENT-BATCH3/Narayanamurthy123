@@ -1,0 +1,92 @@
+*************************************************************************************/
+
+#include<stdio.h>
+struct employee    //structure declaration
+{
+    int emp_id;    //integer declaration
+    char name[30];  //character declaration
+    float salary;   //float declaration
+};
+int main()
+{
+    struct employee e1;   //structure definition
+    printf("enter the name :");   //asking user to enter  the employee name
+    scanf("%s",&e1.name);         //reading the employee name
+    printf("\nenter employee id :"); //asking the user to enter the employee id
+    scanf("%d",&e1.emp_id);          // reading the employee id
+    printf("\nenter the salary :");  // asking the user to enter the salary
+    scanf("%f",&e1.salary);          //reading the salary
+    return 0;
+}
+  
+
+*******************************************************************************/
+#include<stdio.h>
+struct employee    //structure declaration
+{
+    int emp_id;    //integer declaration
+    char name[30];  //character declaration
+    float salary;   //float declaration
+};
+int main()
+{  
+    struct employee e1[10];   //structure definition
+    int i,n;                  //declaring integer variables
+    printf("enter the number of employees data :");  //asking the number of employee data you want to enter
+    scanf("%d",&n);                                  //reading the date 
+    
+    for(i=0;i<n;i++)                 //loop
+  {
+    printf("\nenter the name :");   //asking user to enter  the employee name
+    scanf("%s",e1[i].name);         //reading the employee name
+    printf("\nenter employee id :"); //asking the user to enter the employee id
+    scanf("%d",&e1[i].emp_id);          // reading the employee id
+    printf("\nenter the salary :");  // asking the user to enter the salary
+    scanf("%f",&e1[i].salary);//reading the salary
+  }
+  for(i=0;i<n;i++)                    //loop
+  {
+    printf("\n enter the employee name :%s\n",e1[i].name);
+    printf("\n enter employee id :%d\n",e1[i].emp_id);
+    printf("\n enter the employee salary :%f\n",e1[i].salary);
+  }
+    return 0;
+}
+   
+
+*******************************************************************************/
+
+
+#include<stdio.h>
+union employee    //structure declaration
+{
+    int emp_id;    //integer declaration
+    char name[30];  //character declaration
+    float salary;   //float declaration
+}mani;
+int main()
+{  
+    union employee e1[10];   //structure definition
+    int i,n;                  //declaring integer variables
+    printf("enter the number of employees data :");  //asking the number of employee data you want to enter
+    scanf("%d",&n);                                  //reading the date 
+    
+    for(i=0;i<n;i++)                 //loop
+  {
+    printf("\nenter the name :");   //asking user to enter  the employee name
+    scanf("%s",e1[i].name);         //reading the employee name
+    printf("\nenter employee id :"); //asking the user to enter the employee id
+    scanf("%d",&e1[i].emp_id);          // reading the employee id
+    printf("\nenter the salary :");  // asking the user to enter the salary
+    scanf("%f",&e1[i].salary);//reading the salary
+  }
+  for(i=0;i<n;i++)                    //loop
+  {
+    printf("\n enter the employee name :%s\n",e1[i].name);
+    printf("\n enter employee id :%d\n",e1[i].emp_id);
+    printf("\n enter the employee salary :%f\n",e1[i].salary);
+  }
+  printf("\n size of memory for union :%d\n",sizeof(mani));
+    return 0;
+}
+         

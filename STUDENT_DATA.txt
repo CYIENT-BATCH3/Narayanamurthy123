@@ -1,0 +1,42 @@
+/*
+*declare a structure.
+*declare structure members.
+*read the structure members with the help of for loop.
+*print the student details.
+*/
+#include<stdio.h>
+#include<stdlib.h>
+void read_data(struct studentdata *s);//function prototype declaring
+void print_details(struct studentdata *s);//function decleration
+void read_data(struct studentdata *s)//defining function
+{
+	for(int i=0;i<5;i++)
+	{
+     printf("enter student %d name\n",i+1);
+     scanf("%s",s[i].stu_name);//reading name
+     printf("enter student %d age\n",i+1);
+     scanf("%d",&s[i].stu_age);//reading age
+     printf("enter student %d id\n",i+1);
+     scanf("%d",&s[i].stu_id);//reading id
+	}
+}
+void print_details(struct studentdata *s)//defining function
+	{
+		for(int i=0;i<5;i++)
+		{
+	     printf("\nstudent %d name is %s",i+1,s[i].stu_name);//printning name
+
+	     printf("\nstudent %d age is %d",i+1,s[i].stu_age);//printning age
+
+	     printf("\n student %d id is %d\n",i+1,s[i].stu_id);//printning id
+
+		}
+}
+int main()
+{
+  setbuf(stdout,NULL);//setting buffer to null
+  struct studentdata s[5];//declaring array of 5 structures
+
+read_data(s);//function call of read data
+print_details(s);//calling print_detailsfunction
+}

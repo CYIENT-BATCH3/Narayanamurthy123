@@ -1,0 +1,35 @@
+/*
+ * 1.declare functions with pointer arguments
+ * 2.In main we are declare 2 integer variables
+ * 3.now with function call pass the address of the variables
+ * not in function definition perform add and sub operations
+ * print the results
+ */
+#include<stdio.h>   //preprocessor directive to include standard input output
+int add_function(int *a,int *b);  //add function declaration
+int sub_function(int *k,int *l);  //sub function declaration
+int main()     //main function
+{
+	setbuf(stdout,NULL);
+	int num1,num2;    //declaring variables
+	printf("enter the numbers to perform the operation \n");
+	scanf("%d%d",&num1,&num2);    //reading inputs from the keyboard
+	add_function(&num1,&num2);   // function call
+	sub_function(&num1,&num2);   //function call
+	return 0;
+}
+int add_function(int *a,int *b)    //function definition
+{
+	int sum;    // declaring variable to store the result
+	sum=*a+*b;
+	printf("SUM IS:%d\n",sum);    //printing the result
+	return 0;
+}
+int sub_function(int *k,int *l)       //function declaration
+{
+	int sub;   //declaring variable to store result
+	sub=*k-*l;
+	printf("SUB IS:%d\n",sub);     //printing the result
+	return 0;
+
+}

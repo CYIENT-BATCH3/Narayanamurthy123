@@ -1,0 +1,135 @@
+STRING CONCATINATION WITHOUT USING STRCAT
+
+/*ALGORITHM
+s-1:Give the string value and initialize count
+s-2:Now find the length of the strings with the help of strlen function
+S-3:Now after the length of the first string concatinate it the second string
+s-4:str1[length+i]=str2[i];   copying the elements of second string to the first string
+s-5:printing the concatinated string*/
+
+#include <stdio.h>
+#include <string.h>
+
+void
+main ()
+{
+  char str1[100] = "good";	//declaring and initializing values to the char array
+  char str2[100] = "morning";	//declaring and initializing values to the char array
+
+  int i, length1, length2;
+
+  printf ("Enter the string -1:\n");
+  puts (str1);			//printing the first string with the help of puts statement
+
+  printf ("Enter the string -2:\n");
+  puts (str2);			//printing the second string with the help of puts statement
+  length1 = strlen (str1);	//finding the length of first string with the help of strlen function
+  printf ("LENGTH OF FIRST STRING IS:%d\n", length1);
+  length2 = strlen (str2);	//finding the length of first string with the help of strlen function
+  printf ("LENGTH OF SECOND STRING IS:%d\n", length2);
+
+  for (i = 0; i < length2; i++)
+    {
+      str1[length1 + i] = str2[i];	//for concatination of two strings without strcat function
+
+      //printf("\nconcatinate of string is :%s\n",str1);
+    }
+  printf ("\nconcatinate of string is :%s\n", str1);	//printing the concatinated string
+
+}
+
+
+
+//WAP in C to print the first name and last name
+
+#include <stdio.h>
+int main()
+{
+    char first_name[11],last_name[15];  //declaring the string for first name and last name
+    printf("enter the first name ");
+    scanf("%s",first_name);             //reading the string
+    printf("enter the last name ");    
+    scanf("%s",last_name);              //reading the string
+    printf("%s%s",first_name,last_name);//printing the names
+    return 0;
+}
+
+
+
+NO OF WORDS IN A STRING
+
+ALGORITHIM:
+1.we have to write a program to count the number of alphabets in a string.
+2.we have to declare and initializing the string by using pritf and scanf.
+3.we have to check the length of the string.
+4.the string length doesnot equal to null.
+5.we use while loop for to do the above operation.
+6.we have to write the condition that string increases the count.
+********************************************************************/
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i=0,count=1;
+    char a[30]="narayana murthy mani madhu";
+    char b=' ';
+    while(a[i]!='\0')
+    {
+     if(a[i]==b)
+     {
+        count++; 
+     }
+       i++; 
+    }
+       printf("no of words in a given string:%d\n",count);
+}
+
+
+
+WAP to count the string length
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int count=0;int i=0;
+    char string[]="manumurthy";
+    while(string[i]!=0)
+    {
+        count++;
+        i++;
+    }
+    printf("string length:%d",strlen(string));
+}
+
+
+STRING CONCATINATION USING STRCAT
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+   char str1[]="manu";
+   char str2[]="murthy";
+   strcat(str1,str2);
+   printf("the added string is :%s",str1);
+    
+}
+
+
+PASSING ARRAY ELEMENTS
+#include<stdio.h>
+void display(int a1,int a2)
+{
+    printf("%d\n", a1);
+    printf("%d\n", a2);
+}
+  int main()
+  {
+     int array[]={1,2,3,4};
+     display(array[0],array[3]);
+     return 0;
+  }
+   
+
+

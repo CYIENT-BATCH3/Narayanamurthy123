@@ -1,0 +1,99 @@
+ *************************************************************/
+function return type structure
+
+#include<stdio.h>					//includeing header file foer basic input ouput operation
+
+
+typedef struct						//structure declaration
+{
+	int num1;
+	float num2;
+	float sum;
+	float prod;
+}maths_operation;					//structure datatype using typedef
+maths_operation input_vals();		//prototype for taking user input function
+maths_operation product(maths_operation);	//prototype for product func
+maths_operation sum(maths_operation);		//proto for sum fn
+
+int main()
+{
+	setbuf(stdout,NULL);
+	maths_operation op1;					//declaring structure variable
+	op1 = input_vals();						//taking input to the structure using function with return struct 
+
+	printf("\n after every operation structure 1 = ");
+	op1 = product(op1);						//fn call for product fn with user input structure as argument and result stored in the same struct variable
+	op1 = sum(op1);							//fn call for product fn with user input structure as argument and result stored in the same struct variable
+	printf("\n num1 = %d	num2 = %.2f	sum = %0.2f	product = %.2f",op1.num1,op1.num2,op1.sum,op1.prod);
+
+
+}
+
+maths_operation input_vals()			//function defnition for taking user input fn
+{
+	maths_operation op;
+	printf("enter the int and float values");
+	scanf("%d%f",&op.num1,&op.num2);
+	return op;							//return the structure
+}
+
+maths_operation product(maths_operation op)		//defnition for product fn
+{
+	op.prod = (float)op.num1 * op.num2;
+	return op;
+}
+
+maths_operation sum(maths_operation op)			//defniyion for sum fn
+{
+	op.sum = (float)op.num1 + op.num2;
+	return op;
+}
+
+*-*******************************************************************************/
+fnction return type structure and pass by reference
+
+include<stdio.h>					//includeing header file foer basic input ouput operation
+#include<string.h>
+
+typedef struct						//structure declaration
+{
+	char name[20];
+	int car_id;
+
+}car_st;					//structure datatype using typedef
+
+typedef struct				//second structure
+{
+	char brand[20];
+	char name[20];
+	int car_reg;
+	float price;
+}car_details;				//structure datatype using typedef
+
+car_details user_input_extra(car_st*);			//function prototype of user input function
+int main()
+{
+	setbuf(stdout,NULL);
+	car_details car_det;						//decalre strct variable for car_details
+	car_st car;									//decalre strct variable for car_st
+	printf("enter the car name");				//take user input for the car_st structure
+	scanf("%[^\n]s",car.name);
+	printf("\nenter the car id: ");
+	scanf("%d",&car.car_id);
+
+	car_det = user_input_extra(&car);			//call function to take inpurt from user for the car_details function with address of car_st structure
+	
+	printf("\n\n-------final output --------------");		//print the content of car_det structure
+	printf("\nbrand: %s\t\tname: %s\t\tcar reg: %d\t\tcar price: %f",car_det.brand,car_det.name,car_det.car_reg,car_det.price);
+
+}
+
+car_details user_input_extra(car_st* car)				//function defnition of the user input function
+{
+	car_details car_d;
+	strcpy(car_d.brand,"toyota");
+	strcpy(car_d.name,car->name);
+	car_d.car_reg = car->car_id;
+	car_d.price = 6500000;
+	return car_d;										//return the entire structure to main function 
+}

@@ -1,0 +1,119 @@
+******************************************************************/
+STRUCTURE FUNCTION
+
+#include<stdio.h>
+struct student
+{
+	char name[50];
+	int age;
+};
+void display(struct student s); //function prototype
+int main()
+{
+	setbuf(stdout,NULL);
+	struct student s1;
+	printf("enter name :");  
+    //read string input from the user until \n is entered
+	scanf("%[^\n]%*c",s1.name);
+	printf("enter age :");
+	scanf("%d",&s1.age);
+	display(s1);            //passing struct as an argument
+	return 1;
+}
+void display(struct student s)
+{
+	printf("\nDisplaying information\n");
+	printf("name: %s\n",s.name);
+	printf("age:%d",s.age);
+}
+
+
+***********************************************************************/
+CALL BY VALUE BY USING STRUCTURES
+
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+	int id;
+	char name[20];
+	float percent;
+};
+void func(struct student rec);
+int main()
+{
+	setbuf(stdout,NULL);
+	struct student record;
+	record.id=1;
+	strcpy(record.name,"mani");
+	record.percent=86.5;
+	func(record);
+	return 0;
+}
+void func(struct student rec)
+{
+	printf("id is :%d\n",rec.id);
+	printf("name: %s\n",rec.name);
+	printf("percent :%f",rec.percent);
+}
+
+************************************************************************/
+CALL BY REFERENCE BY USING STRUCTURES
+
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+	int id;
+	char name[20];
+	float percent;
+};
+void func(struct student *rec);
+int main()
+{
+	setbuf(stdout,NULL);
+	struct student record;
+	record.id=1;
+	strcpy(record.name,"mani");
+	record.percent=86.5;
+	func(&record);
+	return 0;
+}
+void func(struct student *rec)
+{
+	printf("id is :%d\n",rec->id);
+	printf("name: %s\n",rec->name);
+	printf("percent :%f",rec->percent);
+}
+
+***********************************************************/
+
+#include<stdio.h>
+struct student
+{
+	int empid;
+	char name[64];
+	float salary;
+};
+struct student getdetail(struct student std);
+int main(void)
+{
+	setbuf(stdout,NULL);
+struct student e,e2;
+e= getdetail(e2);
+printf("name : %s\n",e.name);
+printf("empid :%d\n",e.empid);
+printf("salary :%f\n",e.salary);
+return 0;
+}
+struct student getdetail(struct student std)
+{
+	printf("enter name :");
+	scanf("%s",std.name);
+	printf("enter id :");
+	scanf("%d",&std.empid);
+	printf("enter score :");
+	scanf("%f",&std.salary);
+	return std;
+}
+**********
