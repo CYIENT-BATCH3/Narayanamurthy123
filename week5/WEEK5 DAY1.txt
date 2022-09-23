@@ -1,0 +1,193 @@
+/*wap to print the welcome to c++
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+//using namespace std;
+int main()
+{
+   std:: cout<<"welcome to c++ murthy";  //scope resolution operator
+    return 0;
+}
+
+
+
+/*wap to print the welcome to c++
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+using namespace std;
+int main()
+{
+   cout<<"welcome to c++ murthy";  //scope resolution operator
+    return 0;
+}
+
+
+
+/*wap to input an integer and print using cin and cout.
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+int main()
+{
+	int a;
+	std:: cout<<"enter the value of a :";
+	std:: cin>>a;
+    std::cout<<"a="<<a;
+    return 0;
+}
+
+
+/*wap to find the highest number among the integers.
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a,b;
+	cout<<"enter two integer values \n";
+	cin>>a>>b;
+	if(a>b)
+	{
+		cout<<"a is greaterthan b\n";
+	}
+	else
+	{
+		cout<<"b is greaterthan a";
+	}
+
+    return 0;
+}
+
+
+/*wap to find the sum of 4 digit number and print the result.
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int num,rem,sum=0;
+	cout<<"enter a number to find the sum of digits";
+	cin>>num;
+	if(num>999)
+		{
+		while(num>0)
+		{
+		rem=num%10;
+		sum=sum+rem;
+		num=num/10;
+		}
+		}
+	else{
+		cout<<" it is a invalid num\n";
+	}
+	cout<<"the sum of digits :\n"<<sum;
+	return 0;
+}
+
+
+/*wap to print n natural numbers from 1-n using do while loop.
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int num,min,max;
+	cout<<"enter a min and max values to print n natural numbers : \n";
+	cin>>min>>max;
+
+	num=min;
+		do
+		{
+			cout<<num<<""<<endl;
+			num++;
+
+		}
+		while(num<=max);
+	return 0;
+}
+
+
+/*wap to print factorial of a number using for loop.
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch;
+	cout<<"enter the character";
+	cin>>ch;
+	if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+	{
+		cout<<ch<<" is a vowel";
+	}
+	else
+	{
+		cout<<ch<<" is consonants";
+	}
+	return 0;
+}
+
+
+/*wap to read the string and convert upper case to lower case and viceversa.
+ * sample.cpp
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: nk69912
+ */
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+	char s[10];
+	int n,i;
+	cout<<"enter the string :";
+    cin>>s;
+    n= strlen(s);
+    for(i=0;i<n;i++)
+    {
+    	putchar(toupper(s[i]));
+    }
+    cout<<"\n";
+    for(i=0;i<n;i++)
+    {
+       putchar(tolower(s[i]));
+    }
+	return 0;
+}
+
+

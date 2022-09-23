@@ -1,0 +1,67 @@
+wap to print the data using DEFAULT CONSTRUCTOR
+
+#include<iostream>
+using namespace std;
+class person
+{
+private:
+	string name ;
+	int age ;
+public:
+	person()
+	{
+		cout<<"Default constructor is called \n";
+		name ="murthy";
+		age =22;
+	}
+	void display()
+	{
+		cout<<"name of the current object :"<<name;
+		cout<<"\nage of the current object : "<<age;
+	}
+	~person()
+	{
+		cout<<"\nDefault destructor is called \n";
+		name ="murthy \n";
+		age =22;
+
+	}
+};
+int main()
+{
+	person obj ;
+	obj.display();
+	return 0;
+}
+
+
+wap to print the data using PARAMETERIZED CONSTRUCTOR
+
+#include<iostream>
+using namespace std;
+class person
+{
+private:
+	string name ;
+	int age ;
+person(string person_name)
+	{
+	cout<<"constructor name \n";
+	name=person_name;
+	}
+void print()
+{
+	cout<<"name :"<<name;
+	cout<<"\nage :"<<age;
+}
+~person()
+{
+	cout<<"\nDestructor name ";
+}
+};
+int main()
+{
+	person obj1("Good morning");
+	obj1.print();
+	return 0;
+}

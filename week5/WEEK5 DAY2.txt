@@ -1,0 +1,77 @@
+wap to print the data inside the class in c++ 
+
+#include<iostream>
+using namespace std;
+class student                  //class declaration
+{
+	int age;               //variable declaration
+	float fees;            //variable declaration
+        public:                //access specifier
+	void input()           //declaration of function
+	{
+		cout<<"enter age of students";
+		cin>>age;
+	}
+	void display()         //declaration of function   
+	{
+		cout<<"the age is"<<age;
+	}
+};                               //class ends
+int main()
+{
+	student s1;
+	s1.input();
+	s1.display();
+        return 0;
+}
+
+wap to print the class using c++ in second method
+
+#include<iostream>
+using namespace std;
+class myclass
+{
+    public:    //public access specifier
+	int x;     //public attribute
+	private:   //private access specifier
+	int y;     //private attribute
+};
+int main()
+{
+myclass myobj;
+myobj.x =25;      //allowed(public)
+//myobj.y =50;    //not allowed(private)
+cout<<"the age is :"<<myobj.x;
+return 0;
+}
+
+ basic program function definition  inside the class in c++
+
+#include<iostream>
+using namespace std;
+class student                  //class declaration
+{
+	int age;               //variable declaration
+	float fees;            //variable declaration
+        public:                //access specifier
+	void input()           //declaration of function
+	{
+		cout<<"enter age of students";
+		cin>>age;
+		cout<<"enter fees of students";
+		cin>>fees;
+	}
+	void display()         //declaration of function
+	{
+		cout<<"the age is"<<age;
+		cout<<"\n";
+		cout<<"the fees is:"<<fees;
+	}
+};                               //class ends
+int main()
+{
+	student s1;
+	s1.input();
+	s1.display();
+        return 0;
+}

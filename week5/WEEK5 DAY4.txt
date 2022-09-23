@@ -1,0 +1,26 @@
+Basic Inheritance program:
+
+#include<iostream>
+using namespace std;
+
+class Father     //base class
+{
+               float salary;
+    public:
+               int age;
+};
+class Son : public Father    //Derived class
+{
+    public:
+               void display()
+               {
+                 age=40;
+                 cout<<" My Father age is"<<age<<endl;
+               }
+};
+int main()
+{
+               Son s1;
+               s1.display();
+               return 0;
+}
