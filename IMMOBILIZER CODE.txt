@@ -1,0 +1,106 @@
+[5:57 PM] Sabarinath K a
+/** File:   immobilizer.c
+* Author: nk69912
+*
+* Created on September 24, 2022, 10:35 AM
+*/
+// PIC18F458 Configuration Bit Settings
+
+// 'C' source line config statements
+
+// CONFIG1H#pragma config OSC = HS         // Oscillator Selection bits (HS oscillator)#pragma config OSCS = OFF       // Oscillator System Clock Switch Enable bit (Oscillator system clock switch option is disabled (main oscillator is source))
+
+// CONFIG2L#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)#pragma config BOR = OFF        // Brown-out Reset Enable bit (Brown-out Reset disabled)#pragma config BORV = 25        // Brown-out Reset Voltage bits (VBOR set to 2.5V)
+
+// CONFIG2H#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))#pragma config WDTPS = 128      // Watchdog Timer Postscale Select bits (1:128)
+
+// CONFIG4L#pragma config STVR = OFF       // Stack Full/Underflow Reset Enable bit (Stack Full/Underflow will not cause Reset)#pragma config LVP = OFF        // Low-Voltage ICSP Enable bit (Low-Voltage ICSP disabled)
+
+// CONFIG5L#pragma config CP0 = OFF        // Code Protection bit (Block 0 (000200-001FFFh) not code protected)#pragma config CP1 = OFF        // Code Protection bit (Block 1 (002000-003FFFh) not code protected)#pragma config CP2 = OFF        // Code Protection bit (Block 2 (004000-005FFFh) not code protected)#pragma config CP3 = OFF        // Code Protection bit (Block 3 (006000-007FFFh) not code protected)
+
+// CONFIG5H#pragma config CPB = OFF        // Boot Block Code Protection bit (Boot Block (000000-0001FFh) not code protected)#pragma config CPD = OFF        // Data EEPROM Code Protection bit (Data EEPROM not code protected)
+
+// CONFIG6L#pragma config WRT0 = OFF       // Write Protection bit (Block 0 (000200-001FFFh) not write protected)#pragma config WRT1 = OFF       // Write Protection bit (Block 1 (002000-003FFFh) not write protected)#pragma config WRT2 = OFF       // Write Protection bit (Block 2 (004000-005FFFh) not write protected)#pragma config WRT3 = OFF       // Write Protection bit (Block 3 (006000-007FFFh) not write protected)
+
+// CONFIG6H#pragma config WRTC = OFF       // Configuration Register Write Protection bit (Configuration registers (300000-3000FFh) not write protected)#pragma config WRTB = OFF       // Boot Block Write Protection bit (Boot Block (000000-0001FFh) not write protected)#pragma config WRTD = OFF       // Data EEPROM Write Protection bit (Data EEPROM not write protected)
+
+// CONFIG7L#pragma config EBTR0 = OFF      // Table Read Protection bit (Block 0 (000200-001FFFh) not protected from Table Reads executed in other blocks)#pragma config EBTR1 = OFF      // Table Read Protection bit (Block 1 (002000-003FFFh) not protected from Table Reads executed in other blocks)#pragma config EBTR2 = OFF      // Table Read Protection bit (Block 2 (004000-005FFFh) not protected from Table Reads executed in other blocks)#pragma config EBTR3 = OFF      // Table Read Protection bit (Block 3 (006000-007FFFh) not protected from Table Reads executed in other blocks)
+
+// CONFIG7H#pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0001FFh) not protected from Table Reads executed in other blocks)
+
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+
+#include <xc.h>
+#define ENABLE 1
+#define DISABLE 0
+#define _XTAL_FREQ 20000000
+enum modes{CONFIG_MODE = 0X80,NORMAL_MODE = 0X08};
+char data_byte[11];
+char door_status=0;
+void sys_init();
+void can_init();
+void set_mode(char);
+void get_mode(char);
+void set_baudrate();
+void set_mask();
+void set_filter();
+void can_read();
+//void led_fun();
+void can_write(char);
+void check_door_status();
+void main(void)
+{  TRISBbits.RB1 = 0;          //for trouble shooting purpose    PORTBbits.RB1 = 0;        TRISBbits.RB0 = 0;    PORTBbits.RB0 = 0;         sys_init();    can_init();    set_baudrate();    set_mask();    set_filter();            while(1)    {        if(door_status)            PORTBbits.RB0 = ENABLE;        else            PORTBbits.RB0 = DISABLE;        can_write(door_status);        __delay_ms(2000);                            }         
+}
+/*-------------- initialization of can bus -----------------------------------*/
+void sys_init()
+{    GIE = ENABLE;    PEIE = ENABLE;    PIE3bits.RXB0IE =ENABLE;    IPR3bits.RXB0IP=ENABLE;    
+}
+
+void can_init()
+{    TRISBbits.RB3 = ENABLE;    TRISBbits.RB2 = DISABLE;
+}
+
+void set_baudrate()
+{       set_mode(CONFIG_MODE);    get_mode(CONFIG_MODE);    BRGCON1 = 0XC1;    BRGCON2 = 0XAE;    BRGCON3 = 0X45;    CIOCON = 0X20;    set_mode(NORMAL_MODE);          
+}
+
+void set_mode(char mode)
+{   CANCON = mode;  
+}
+
+
+void get_mode(char mode)
+{    while(CANCON != mode);
+}
+
+/*---------------- receiver code ----------------------------------------------*/
+void set_mask()
+{    RXM0SIDH = 0x00;    RXM0SIDL = 0x00;
+}
+
+
+void set_filter()
+{    RXF0SIDH = 0x00;    RXF0SIDL = 0x00;    RXF1SIDH = 0x00;    RXF1SIDL = 0x00;        //RXB0CON = 0x00;     //check at compilation    
+}
+
+
+void can_read()
+{    CANCON = 0x0E;    RXB0CON = 0x00;             data_byte[0] = RXB0D0;       data_byte[1] = RXB0D1;       data_byte[2] = RXB0D2;       data_byte[3] = RXB0D3;       data_byte[4] = RXB0D4;       data_byte[5] = RXB0D5;       data_byte[6] = RXB0D6;       data_byte[7] = RXB0D7;       data_byte[8] = RXB0DLC;      data_byte[9] = RXB0SIDL;      data_byte[10]= RXB0SIDH;               RXB0CONbits.RXFUL = 0;        check_door_status();    
+}
+
+void __interrupt() ISR1()
+{    if(PIR3bits.RXB0IF)    {                PIR3bits.RXB0IF = DISABLE;        can_read();            }
+}
+
+void check_door_status()
+{    if(data_byte[3] == 0xAA &&  data_byte[4] == 0xAA && data_byte[5] == 0xAA && data_byte[6] == 0xAA && data_byte[7] == 0xAA)        {            door_status = 1;        }        else        {            door_status = 0;        }
+}
+
+
+/*----------------------------- transmitter code ----------------------*/
+
+void can_write(char door_status)
+{    __delay_ms(500);     CANCON = NORMAL_MODE;     //while(CANSTAT != NORMAL_MODE);     CIOCON = 0X20;              TXB0SIDH = 0x00;                   //for address 66 for 77 it will be 0x0d high  0xd0 low     TXB0SIDL = 0x08;     TXB0EIDH = 0x09;     TXB0EIDL = 0x32;     TXB0DLC = 0X08;     TXB0D0  = 0X00;     TXB0D1  = 0X00;     TXB0D2  = 0X00;     TXB0D3  = door_status;     TXB0D4  = 0X00;     TXB0D5  = 0X00;     TXB0D6  = 0X00;     TXB0D7  = 0X00;     TXB0CON = 0x08; 
+}
+
