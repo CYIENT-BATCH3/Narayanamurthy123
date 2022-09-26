@@ -1,5 +1,29 @@
-[5:57 PM] Sabarinath K a
-/** File:   immobilizer.c
+ALGORITHIM 
+
+1.start
+
+2.set configuration bits for PIC18f458.
+
+3.set crystal frequency to 2mhz.
+
+4.perform functions for CAN operations modes like set mode,get mode,initialize,,set baud rate,set mask
+
+  set filter mask, CAN read and CAN write.
+
+5.consider a message of 0x432 to ECU of bus master is tranmsmitted in that bits 3 to 7 consider as data (AA).
+
+  Other bits consider as 0x00.
+
+6.consider another message of 0x932 from other ECU for recieving purpose.here the the third bit is considerd for
+
+  checking the status of the door.
+
+7.if the message ID 432 from ECU1 is true then the reciever ECUs third bit will tell the staus of the door.
+
+8.the door status be 0x01 for opening of door and 0x00 for closing of door.
+
+9.stop.
+/** File:   immobilizer.c
 * Author: nk69912
 *
 * Created on September 24, 2022, 10:35 AM
